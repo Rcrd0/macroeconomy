@@ -1,0 +1,17 @@
+{
+    "contents" : "#figure2.R\n#svg(file = \"figura3.svg\", width = 12, height = 4)\n\nmacro <- read.csv(\"TFG v0.4.csv\", header = TRUE, sep = \";\", dec = \",\")\nbde <- subset(macro[macro$BC == \"BdE\", ])\n\n\npar(mfrow = c(1, 2), mar=c(4,4,2,1), lab= c(11, 5, 7))\nboxplot(bde$It ~ bde$Derecha, data = bde, ylab = \"Inflación\", pch = 20,\n        names = c(\"PSOE (13)\", \"UCD (7)\", \"PP (2)\", \"Dictad (11)\"),\n        col = c(\"red\", \"darkgreen\", \"blue\", \"darkgray\"))\n\navg <- round(mean(bde$It[bde$Gobierno == \"PSOE\"]), 2)\ntext(1, avg+0.08, bquote(bar(I[t]) == .(avg)))\n\navg <- round(mean(bde$It[bde$Gobierno == \"UCD\"]), 2)\ntext(2, avg+0.08, bquote(bar(I[t]) == .(avg)))\n\navg <- round(mean(bde$It[bde$Gobierno == \"PP\"]), 2)\ntext(3, avg+0.08, bquote(bar(I[t]) == .(avg)))\n\navg <- round(mean(bde$It[bde$Gobierno == \"Dictadura\"]), 2)\ntext(4, avg+0.08, bquote(bar(I[t]) == .(avg)))\n\n\nboxplot(bde$V_It ~ bde$Derecha, data = bde, ylab = \"Aumento de Inflación\", pch = 20,\n        names = c(\"PSOE (13)\", \"UCD (7)\", \"PP (2)\", \"Dictad (11)\"),\n        col = c(\"red\", \"darkgreen\", \"blue\", \"darkgray\"))\n\navg <- round(mean(bde$V_It[bde$Gobierno == \"PSOE\"]), 2)\ntext(1, avg-0.05, bquote(bar(Delta * I[t]) == .(avg)))\n\navg <- round(mean(bde$V_It[bde$Gobierno == \"UCD\"]), 2)\ntext(2, avg-0.05, bquote(bar(Delta * I[t]) == .(avg)))\n\navg <- round(mean(bde$V_It[bde$Gobierno == \"PP\"]), 2)\ntext(3, avg-0.05, bquote(bar(Delta * I[t]) == .(avg)))\n\navg <- round(mean(bde$V_It[bde$Gobierno == \"Dictadura\"]), 2)\ntext(4, avg-0.05, bquote(bar(Delta * I[t]) == .(avg)))\n\n\n\n#dev.off()\n",
+    "created" : 1428321926007.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "555132590",
+    "id" : "77C2D43A",
+    "lastKnownWriteTime" : 1428345014,
+    "path" : "C:/src/macroeconomy/tfg/figure3.R",
+    "project_path" : "figure3.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

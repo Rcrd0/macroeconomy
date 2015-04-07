@@ -1,0 +1,17 @@
+{
+    "contents" : "#figure2.R\nmacro <- read.csv(\"TFG_T1.csv\", header = TRUE, sep = \";\", dec = \",\")\ncol_gob <- c(rep(\"darkgray\", 11), rep(\"darkgreen\", 7), rep(\"red\",13), rep(\"blue\", 8), rep(\"red\", 8), rep(\"blue\",3))\npch_gob <- ifelse(macro$BC == \"BCE\", 15, 17)\n\n#win.metafile(filename = \"Figure2.emf\", width = 18, height = 6)\n#text(0.10, -0.09, expression(R ^2))\n\nsvg(file = \"figura2.svg\", width = 8, height = 3)\n\npar(mfrow = c(1, 3), mar=c(4,4,2,1), lab= c(11, 5, 7))\nplot(macro$Ut, macro$V_It, pch =  pch_gob, col = col_gob, xlim = c(0, 0.26), ylim = c(-0.1, 0.07), main = \"Curva de Phillips\", xlab = \"Desempleo\", ylab =\"Variación de inflación\")\n\nmod <- lm(macro$V_It ~ macro$Ut)\nabline(mod, lwd = 2, col = rgb(0,0,0, 0.5))\ntext(0.10, -0.07, paste(\"Y = \", round(mod$coefficients[1], digits = 4), \" \", round(mod$coefficients[2], digits = 4), \"X\",  sep =\"\"), pos = 4)\ntext(0.10, -0.09, expression(R ^2), pos = 4)\ntext(0.12, -0.09, paste (\"= \", round(summary(mod)$r.squared, 3), sep = \"\"), pos = 4)\n\nbde <- subset(macro[macro$BC == \"BdE\", ])\nplot(bde$Ut, bde$V_It, col =  col_gob[1:34], pch = 17, xlim = c(0, 0.26), ylim = c(-0.1, 0.07), main = \"Curva de Phillips Peseta\", xlab = \"Desempleo\", ylab =\"Variación de inflación\")\nmod <- lm(bde$V_It ~ bde$Ut), lwd = 2, col = rgb(0,0,0, 0.5))\nabline(mod, lwd = 2, col = rgb(0,0,0, 0.5))\ntext(0.10, -0.07, paste(\"Y = \", round(mod$coefficients[1], digits = 4), \" \", round(mod$coefficients[2], digits = 4), \"X\",  sep =\"\"), pos = 4)\ntext(0.10, -0.09, expression(R ^2), pos = 4)\ntext(0.12, -0.09, paste (\"= \", round(summary(mod)$r.squared, 3), sep = \"\"), pos = 4)\n\nlegend(\"topright\", \n       pch = c(17, 17, 17, 17), \n       col = c(\"darkgray\", \"darkgreen\", \"red\", \"blue\"), \n       legend = c(\"Franco\", \"UCD\", \"PSOE Bde\", \"PP BdE\"))\n\n\nbce <- subset(macro[macro$BC == \"BCE\", ])\nplot(bce$Ut, bce$V_It, col =  col_gob[35:50], pch = 15, xlim = c(0, 0.26), ylim = c(-0.1, 0.07), main = \"Curva de Phillips Euro\", xlab = \"Desempleo\", ylab =\"Variación de inflación\")\nmod <- lm(bde$V_It ~ bde$Ut)\nabline(mod, lwd = 2, col = rgb(0,0,0, 0.5))\ntext(0.10, -0.07, paste(\"Y = \", round(mod$coefficients[1], digits = 4), \" \", round(mod$coefficients[2], digits = 4), \"X\",  sep =\"\"), pos = 4)\ntext(0.10, -0.09, expression(R ^2), pos = 4)\ntext(0.12, -0.09, paste (\"= \", round(summary(mod)$r.squared, 3), sep = \"\"), pos = 4)\n\nlegend(\"topright\", \n       pch = c(15, 15), \n       col = c(\"blue\", \"red\"), \n       legend = c(\"PP BCE\", \"PSOE BCE\"))\n\ndev.off()\n\n",
+    "created" : 1428263444548.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4072749049",
+    "id" : "EC3F2199",
+    "lastKnownWriteTime" : 1428321923,
+    "path" : "C:/src/macroeconomy/tfg/figure2.R",
+    "project_path" : "figure2.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

@@ -1,0 +1,17 @@
+{
+    "contents" : "# Figure 1\nmacro <- read.csv(\"TFG_T1.csv\", header = TRUE, sep = \";\", dec = \",\")\n\nsvg(file = \"figura1.svg\")\n#jpeg(file = \"figura1.jpg\", width = 15, height = 20, units = \"cm\", res = 172)\npar(mfrow = c(3, 1), mar=c(2,4,1,1), lab= c(11, 5, 7))\nplotvar(macro$t, macro$Ct, \"Crecimiento real\")\nlegend(\"topright\", pch = 20, col = c(\"darkgray\", \"darkgreen\", \"red\", \"blue\"), legend = c(\"Franco\", \"UCD\", \"PSOE\", \"PP\"))\nplotvar(macro$t, macro$Ut, \"Desempleo\")\nplotvar(macro$t, macro$It, \"Inflación\")\ndev.off()\n\n\nplotvar <- function(t, values, varname)\n{\n  col_gob = c(rep(\"darkgray\", 11), rep(\"darkgreen\", 7), rep(\"red\",13), rep(\"blue\", 8), rep(\"red\", 8), rep(\"blue\",3))\n  \n  franco =   mean(values[1:11])\n  suarez =   mean(values[12:18])\n  gonzalez = mean(values[19:31])\n  aznar =    mean(values[32:39])\n  zapatero = mean(values[40:47])\n  rajoy =    mean(values[48:50])\n  plot(t, values, type = \"n\", ylab = varname, xlim = c(1965, 2015))\n  points(t, values, col = col_gob, pch = 15)\n  \n  lines(t[1:11], values[1:11], col = \"darkgray\")\n  lines(t[1:11], rep(franco,11), col = \"darkgray\", lty = \"dashed\")\n  \n  lines(t[11:18], values[11:18], col = \"darkgreen\")\n  lines(t[12:18], rep(suarez,7), col = \"darkgreen\", lty = \"dashed\")\n  \n  lines(t[18:31], values[18:31], col = \"red\")\n  lines(t[19:31], rep(gonzalez,13), col = \"red\", lty = \"dashed\")\n  \n  lines(t[31:39], values[31:39], col = \"blue\")\n  lines(t[32:39], rep(aznar,8), col = \"blue\", lty = \"dashed\")\n  \n  lines(t[39:47], values[39:47], col = \"red\")\n  lines(t[40:47], rep(zapatero,8), col = \"red\", lty = \"dashed\")\n  \n  lines(t[47:50], values[47:50], col = \"blue\")\n  lines(t[48:50], rep(rajoy,3), col = \"blue\", lty = \"dashed\")\n  \n}",
+    "created" : 1428228273569.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3071403399",
+    "id" : "C48592D9",
+    "lastKnownWriteTime" : 1428271313,
+    "path" : "C:/src/macroeconomy/tfg/figure1.R",
+    "project_path" : "figure1.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

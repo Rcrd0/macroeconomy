@@ -1,0 +1,17 @@
+{
+    "contents" : "#figure 4\n#demo(plotmath)\nmacro <- read.csv(\"TFG v0.4.csv\", header = TRUE, sep = \";\", dec = \",\")\npartid <- subset(macro[19:32, ])\n\n# names (partid)\n#elect <- subset(macro[macro$A.Electoral == \"Si\", ])\n#prelect <- subset(macro[macro$A.Pre.Elect == \"Si\", ])\n\n# svg(file = \"figura4.svg\", width = 12, height = 4)\n\npartid$Lev <- factor(as.character(partid$Prox.Elect))\npar(mfrow = c(1, 2), mar=c(4,4,1,2), lab= c(11, 5, 7))\n\nboxplot(partid$It ~ partid$Lev, data = partid, xlab = \"Años hasta las próximas elecciones\", ylab = \"Inflación\", pch = 20, col = \"ivory\")\navg <- round(mean(partid$It[partid$Prox.Elect == 0]), 2)\ntext(1, avg+0.006, bquote(bar(I[t]) == .(avg)))\n\navg <- round(mean(partid$It[partid$Prox.Elect == 1]), 2)\ntext(2, avg+0.006, bquote(bar(I[t]) == .(avg)))\n\navg <- round(mean(partid$It[partid$Prox.Elect == 2]), 2)\ntext(3, avg+0.006, bquote(bar(I[t]) == .(avg)))\n\navg <- round(mean(partid$It[partid$Prox.Elect == 3]), 2)\ntext(4, avg+0.006, bquote(bar(I[t]) == .(avg)))\n\n\n\nboxplot(partid$V_It ~ partid$Lev, data = partid, xlab = \"Años hasta las próximas elecciones\", ylab = \"Incremento de Inflación\", pch = 20, col = \"ivory\")\navg <- round(mean(partid$V_It[partid$Prox.Elect == 0]), 2)\ntext(1, avg+0.003, bquote(bar(Delta * I[t]) == .(avg)))\n\navg <- round(mean(partid$V_It[partid$Prox.Elect == 1]), 2)\ntext(2, avg+0.003, bquote(bar(Delta * I[t]) == .(avg)))\n\navg <- round(mean(partid$V_It[partid$Prox.Elect == 2]), 2)\ntext(3, avg+0.003, bquote(bar(Delta * I[t]) == .(avg)))\n\navg <- round(mean(partid$V_It[partid$Prox.Elect == 3]), 2)\ntext(4, avg+0.003, bquote(bar(Delta * I[t]) == .(avg)))\n\n",
+    "created" : 1428336785085.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2602154702",
+    "id" : "3ABC0692",
+    "lastKnownWriteTime" : 1428343866,
+    "path" : "C:/src/macroeconomy/tfg/figure4.R",
+    "project_path" : "figure4.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

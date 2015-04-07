@@ -1,0 +1,17 @@
+{
+    "contents" : "#figure5.R\n\nmacro <- read.csv(\"TFG v0.4.csv\", header = TRUE, sep = \";\", dec = \",\")\nbde <- subset(macro[macro$BC == \"BdE\", ])\nbce <- subset(macro[macro$BC == \"BCE\", ])\npar(mfrow = c(1, 2), mar=c(4,4,1,1), lab= c(10, 6, 7))\ns <- seq (from = -0.01, to = 0.3, by = 0.005)\ncol <- ifelse(s < 0 | s >= 0.03, \"red\", \"darkgreen\")\nhist(bde$It, breaks = s, col = col, xlim = c(-0.01, 0.3), ylim = c(0,7), \n     main = \"Inflación con el BdE\", ylab = \"Número de años\", xlab = expression(I[t]))\nabline(v = 0.00, col = \"red\", lty = \"dashed\")\nabline(v = 0.03, col = \"red\", lty = \"dashed\")\navg <- round(mean(bde$It), 3)\ntext(0.15, 4, bquote(bar(I[t]) == .(avg)))\n\nhist(bce$It, breaks = s, col = col, xlim = c(-0.01, 0.3), ylim = c(0,7),\nmain = \"Inflación con el BCE\", ylab = \"Número de años\", xlab = expression(I[t]))\nabline(v = 0.00, col = \"red\", lty = \"dashed\")\nabline(v = 0.03, col = \"red\", lty = \"dashed\")\navg <- round(mean(bce$It), 3)\ntext(0.15, 4, bquote(bar(I[t]) == .(avg)))\n\n     \nmax(macro$It    )\npar\nseq 0:10\n",
+    "created" : 1428346218260.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3007857467",
+    "id" : "8EDBA683",
+    "lastKnownWriteTime" : 1428349127,
+    "path" : "C:/src/macroeconomy/tfg/figure5.R",
+    "project_path" : "figure5.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
